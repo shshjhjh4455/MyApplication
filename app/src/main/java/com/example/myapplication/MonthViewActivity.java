@@ -34,9 +34,7 @@ public class MonthViewActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH) + 1;
         lastdate = calendar.getActualMaximum(Calendar.DATE);
 
-        day = calendar.get(Calendar.DATE);
-
-        calendar.add(day,(-day + 1));
+        calendar.set(2022, 3, 1);
 
         day = calendar.get(Calendar.DATE);
 
