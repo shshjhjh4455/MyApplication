@@ -8,6 +8,5 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:hint="n"
-        android:onClick="onClick"
         />
 </LinearLayout>
