@@ -1,18 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MonthViewActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal">
+        <Button
+            android:id="@+id/before_Month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이전"
+            android:onClick="onClick"/>
+        <TextView
+            android:id="@+id/textview_Month"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/next_Month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다음"
+            android:onClick="onClick"/>
+    </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="#20C308"
+        android:text="@string/day_name"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <GridView
+            android:id="@+id/gridview_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="7"
+            tools:listitem="@layout/date_item"/>
+<!--        달력을 그리드뷰로 표현하기 위해 numColumns 를 이용해 7열으로 설정한다.
+            각 날짜는 아이템 리소스파일을 생성해 만들어준 후tools:listitem 을 이용해 아이템 정보를 가져와 그리드뷰에 배치한다.-->
+
+    </LinearLayout>
+
+</LinearLayout>
