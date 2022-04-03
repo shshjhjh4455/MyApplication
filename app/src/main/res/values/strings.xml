@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">AndroidProject1</string>
     <string name="day_name">"일            월            화            수            목            금            토"</string>
 </resources>
