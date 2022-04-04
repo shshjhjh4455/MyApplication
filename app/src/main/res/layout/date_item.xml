@@ -8,5 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:hint="n"
+        android:background="@color/white"
         />
+<!--    구분선을 위해 배경을 white로 설정한다. -->
 </LinearLayout>

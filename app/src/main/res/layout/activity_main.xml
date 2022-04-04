@@ -14,7 +14,7 @@
             android:id="@+id/before_Month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이전"
+            android:text="@string/before_month"
             android:onClick="mClick"/>
         <TextView
             android:id="@+id/textview_Month"
@@ -27,7 +27,7 @@
             android:id="@+id/next_Month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="다음"
+            android:text="@string/next_month"
             android:onClick="mClick"/>
     </LinearLayout>
 
@@ -35,20 +35,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#20C308"
-        android:text="@string/day_name" />
+        android:text="@string/day_name"
+        android:letterSpacing="3"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#4080FA">
 
         <GridView
             android:id="@+id/gridview_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:horizontalSpacing="1dp"
+            android:verticalSpacing="1dp"
+            android:padding="1dp"
             android:numColumns="7"
-            tools:listitem="@layout/date_item"/>
-<!--        달력을 그리드뷰로 표현하기 위해 numColumns 를 이용해 7열으로 설정한다.
-            각 날짜는 아이템 리소스파일을 생성해 만들어준 후tools:listitem 을 이용해 아이템 정보를 가져와 그리드뷰에 배치한다.-->
+            tools:listitem="@layout/date_item" />
+        <!--        달력을 그리드뷰로 표현하기 위해 numColumns 를 이용해 7열으로 설정한다.
+            각 날짜는 아이템 리소스파일을 생성해 만들어준 후tools:listitem 을 이용해 아이템 정보를 가져와 그리드뷰에 배치한다.
+            날짜의 구분선을 위해 horizontalSpacing, verticalSpacing, padding 을 1dp씩 설정한다.
+            -->
 
     </LinearLayout>
 

@@ -15,7 +15,6 @@ public class MonthViewAdapter extends BaseAdapter {
     private int mResource;
     private ArrayList<My_date> mdates;
 
-
     public MonthViewAdapter(Context context, int Resource, ArrayList<My_date> dates) {
         mContext = context;
         mResource = Resource;
@@ -46,9 +45,10 @@ public class MonthViewAdapter extends BaseAdapter {
 
         TextView tv_date = convertView.findViewById(R.id.textview_date);
         if(mdates.get(position).date > 0)
+            //1일이 일요일이 아닌 다른 날의 경우 앞의 빈칸의 date변수는 0으로 저장되어 있기 때문에 0이상인 경우에 날짜 입력
             tv_date.setText(String.valueOf(mdates.get(position).date));
         else
-            tv_date.setText(" ");
+            tv_date.setText(" "); //빈칸 생성
 
         return convertView;
     }
