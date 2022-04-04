@@ -21,9 +21,8 @@ public class MonthViewActivity extends AppCompatActivity {
     MonthViewAdapter adapter;
     ArrayList<My_date> dates;
 
-    int year, month, lastdate, day, dow;
+    int year, month, lastdate, dow;
 //  날짜의 계산과 해당 월의 시작 요일의 계산을 위한 변수 생성
-//  day 는 현재 날짜를 1일으로 설정하기 위한 변수
 //  dow 는 1일으로 설정된 현재날짜가 무슨 요일인지 판단하기 위한 변수
 
     @Override
@@ -53,12 +52,11 @@ public class MonthViewActivity extends AppCompatActivity {
 //      인텐트에 저장된 값이 있다면 해당 값으로 날짜정보를 시작하고 처음부터 시작했다면 Calendar 를 이용해 현재 날짜의 정보를 가져온다.
 
         calendar.set(year, month-1, 1);
-//      현재 날짜를 위에서 가져온 year년 month월 1일으로 설정한다. (day,dow 를 구할 때 용이하기 위해 일자를 1일으로 설정한다.)
+//      현재 날짜를 위에서 가져온 year년 month월 1일으로 설정한다. (dow 를 구할 때 용이하기 위해 일자를 1일으로 설정한다.)
 
-        day = calendar.get(Calendar.DATE);
         dow = calendar.get(Calendar.DAY_OF_WEEK);
 //      Calendar 를 이용해 현재 년도, 월, 해당 월의 최대 날짜(30,31) 를 구해준다
-//      day 와 dow 를 이용해 앞서 말한 것 처럼 현재 날짜를 1일으로 바꾸고 요일을 구해 각 변수에 저장한다.(1=일요일,2=월요일...7=토요일)
+//      dow 를 이용해 앞서 말한 것 처럼 요일을 구해 저장한다.(1=일요일,2=월요일...7=토요일)
 
         TextView tv_Month = (TextView) findViewById(R.id.textview_Month);
         tv_Month.setText(year + "년 " + month + "월");
@@ -108,7 +106,7 @@ public class MonthViewActivity extends AppCompatActivity {
 
         switch (view.getId()) {
             case R.id.before_Month: //이전 버튼이 눌렸을 때
-                calendar.set(year, month - 2, day); //현재 날짜에서 월만 -1 해준다(month 의 범위가 0~11이기 때문에 -1 하기 위해 month -2 를 입력해준다.)
+                calendar.set(year, month - 2, 1); //현재 날짜에서 월만 -1 해준다(month 의 범위가 0~11이기 때문에 -1 하기 위해 month -2 를 입력해준다.)
                 year = calendar.get(Calendar.YEAR);
                 month = calendar.get(Calendar.MONTH) + 1;
                 lastdate = calendar.getActualMaximum(Calendar.DATE);
@@ -126,7 +124,7 @@ public class MonthViewActivity extends AppCompatActivity {
                 break;
 
             case R.id.next_Month:
-                calendar.set(year, month, day);
+                calendar.set(year, month, 1);
 //              위와 같은 이유로 month 에 Calendar.MONTH + 1 이 저장되어 있기 때문에 month 를 그대로 입력해준다.
                 year = calendar.get(Calendar.YEAR);
                 month = calendar.get(Calendar.MONTH) + 1;
