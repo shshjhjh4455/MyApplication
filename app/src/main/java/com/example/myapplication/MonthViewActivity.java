@@ -18,7 +18,7 @@ public class MonthViewActivity extends AppCompatActivity {
     Intent intent;
 
     GridView gridView;
-    static MonthViewAdapter adapter;
+    MonthViewAdapter adapter;
     ArrayList<My_date> dates;
 
     int year, month, lastdate, day, dow;
